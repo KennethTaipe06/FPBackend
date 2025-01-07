@@ -71,10 +71,17 @@ TEMPLATES = [
 WSGI_APPLICATION = 'webpage.wsgi.application'
 
 # Database configuration
+import pymysql
+pymysql.install_as_MySQLdb()
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'DB_login',
+        'USER': 'admin_remoto',
+        'PASSWORD': 'ContraseñaSegura123!',
+        'HOST': '44.204.64.68',  # Asegúrate de que el nombre aquí coincida con el de tu contenedor MySQL
+        'PORT': '3306',
     }
 }
 
@@ -154,7 +161,5 @@ EMAIL_PORT = env("EMAIL_PORT")
 EMAIL_HOST_USER = env("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD")
 DEFAULT_FROM_EMAIL = "info@webpage.com"
-DOMAIN = "localhost:5173"
+DOMAIN = env("DOMAIN")
 SITE_NAME = "Webpage"
-
-

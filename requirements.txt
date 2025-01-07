@@ -8,3 +8,4 @@ drf-yasg==1.21.8
 social-auth-app-django==5.4.2
 social-auth-core==4.5.4
 oauthlib==3.2.2
+PyMySQL==1.1.1
