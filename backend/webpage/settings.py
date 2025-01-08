@@ -13,13 +13,10 @@ SECRET_KEY = env("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env("DEBUG")
 
-ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", default=[])
+ALLOWED_HOSTS = ['*']
 
 # CORS settings
-CORS_ALLOWED_ORIGINS = env.list("CORS_ALLOWED_ORIGINS", default=[
-    "http://127.0.0.1:5173",
-    "http://localhost:5173",
-])
+CORS_ALLOW_ALL_ORIGINS = True
 
 # Application definition
 INSTALLED_APPS = [
@@ -78,10 +75,14 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'DB_login',
-        'USER': 'admin_remoto',
-        'PASSWORD': 'ContraseñaSegura123!',
-        'HOST': '44.204.64.68',  # Asegúrate de que el nombre aquí coincida con el de tu contenedor MySQL
+        'USER': 'usuario_remoto',
+        'PASSWORD': 'FxNc10082002*',
+        'HOST': '54.173.189.190',
         'PORT': '3306',
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+            'charset': 'utf8mb4',
+        },
     }
 }
 
